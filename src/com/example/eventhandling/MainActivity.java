@@ -1,15 +1,17 @@
 package com.example.eventhandling;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
-	private Button btnClick;
+	private Button Click;
+	private EditText name;
 	
 
     @Override
@@ -17,27 +19,23 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        btnClick = (Button) findViewById(R.id.btnClick);
+        Click = (Button) findViewById(R.id.Click);
+        name = (EditText) findViewById(R.id.name);
         
         OnClickListener listener = new OnClickListener(){
         	 
         
+        	@Override
+        	public void onClick(View v)
         	
-        	public void onClick(View arg0)
         	{
-        		btnClick.setText("Button was clicked");
+        	  Toast.makeText(getApplicationContext(),name.getText(), Toast.LENGTH_LONG).show();	
         		
         	}
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				
-			}
         	
         };
         
-        	btnClick.setOnClickListener((android.view.View.OnClickListener) listener);
+        	Click.setOnClickListener(listener);
         	
         	
         
